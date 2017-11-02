@@ -1,0 +1,220 @@
+\documentclass[11pt]{amsart}
+%\usepackage[english]{babel}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{showlabels}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{marginnote}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage{yfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+%\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{faktor}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns}
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{mathtools}
+
+\newcommand{\TT}{\operatorname{T}}
+\newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
+\newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
+\newcommand{\Qe}[4]{\mathcal{Q}^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\Qt}[4]{\widetilde{\mathcal Q}_{#1,#2}(#3,#4)}
+\newcommand{\QG}[4]{\mathcal{Q}G_{#1,#2}(#3,#4)}
+\newcommand{\QGe}[4]{\mathcal{Q}G^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\D}[3]{\mathcal{D^Q}(#1,#2,#3)}
+\newcommand{\E}[3]{\mathcal{E^Q}(#1,#2,#3)}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\OO}{\mathcal{O}}
+\renewcommand{\to}{\rightarrow}
+\newcommand{\A}{\mathcal A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\C}{\mathfrak C}
+\newcommand{\EE}{\mathbf{E}}
+\renewcommand{\L}{\mathcal L}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\MM}{\mathfrak M}
+\newcommand{\Aaff}{\mathbb{A}}
+\newcommand{\kfield}{\Bbbk}
+\newcommand{\comp}{\chi}
+\newcommand{\sst}{\sigma^{\operatorname{ss}}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Def}{\operatorname{Def}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Gm}{\mathbb{G}_{\text{m}}}
+\newcommand{\virt}[1]{[#1]^{\operatorname{virt}}}
+\newcommand{\vip}[1]{[#1]^{\operatorname{prod}}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\HH}{\operatorname{H}}
+\newcommand{\Achow}{\operatorname{A}}
+\newcommand{\pt}{\operatorname{pt}}
+\newcommand{\bq}{\begin{equation}}
+\newcommand{\eq}{\end{equation}}
+\newcommand{\ba}{\begin{aligned}}
+\newcommand{\ea}{\end{aligned}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bsm}{\left(\begin{smallmatrix}}
+\newcommand{\esm}{\end{smallmatrix}\right)}                   
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+\newcommand{\barr}{\begin{displaymath}\begin{array}{cccc}}
+\newcommand{\earr}{\end{array}\end{displaymath}}
+\newcommand{\barrl}{\begin{displaymath}\begin{array}{lcl}}
+\newcommand{\earrl}{\end{array}\end{displaymath}}
+\newcommand{\barl}{\begin{displaymath}\begin{array}{l}}
+\newcommand{\earl}{\end{array}\end{displaymath}}
+\newcommand{\bxym}{ \begin{displaymath}\xymatrix }
+\newcommand{\exym}{\end{displaymath}}
+\newcommand{\bcd}{\begin{center}\begin{tikzcd}}
+\newcommand{\ecd}{\end{tikzcd}\end{center}}
+\newcommand{\R}{\operatorname{R}^{\bullet}}
+%\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\Isom}{\text{Isom}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\vdim}{\operatorname{vdim}}
+\newcommand{\ildef}[1]{\emph{#1}}
+\newcommand{\om}[1]{\mathcal{#1}}
+\newcommand{\h}{\operatorname{h}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\RR}{\textbf{R}}
+\newcommand{\NN}{\operatorname{N}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{teo*}{Theorem}
+\newtheorem{ipotesi}{ipotesi}
+\newtheorem*{nota}{Nota}
+\newtheorem{claim}{Claim}
+\newtheorem{question}[thm]{Question}
+\newtheorem{conj}[thm]{Conjecture}
+
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{aside}[thm]{Aside}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{com}[thm]{Comment}
+\newtheorem{num}{Number}
+\newtheorem*{sketch}{Sketch}
+\newtheorem*{rem}{Remark}
+\newtheorem*{aside*}{Aside}
+\newtheorem*{acknowledgements}{Acknowledgements}
+
+\newcommand{\ilemph}[1]{\emph{#1}}
+
+\setcounter{tocdepth}{1}
+
+\newcommand{\todo}[1]{\vspace{5mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
+
+\def\ti{-\allowhyphens}
+\newcommand{\thismonth}{\ifcase\month % case 0 --- impossible!
+  \or January\or February\or March\or April\or May\or June%
+  \or July\or August\or September\or October\or November%
+  \or December\fi}
+\newcommand{\thismonthyear}{{\thismonth} {\number\year}}
+\newcommand{\thisdaymonthyear}{{\number\day} {\thismonth} {\number\year}}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+
+\title[]{Localisation and quasimap cohomology}
+\author{}
+\begin{document}
+
+\maketitle
+\appendixtitletocoff
+\tableofcontents
+
+\section{Localisation formula}
+\subsection{Notation from toric geometry}
+Let $X_\Sigma$ be a smooth complete toric variety, for $\Sigma\subseteq N$ a rational polyhedral fan and $M=\Hom_{\ZZ}(N,\ZZ)$. Let us denote by $r$ the Picard rank of $X$, by $n$ its dimension, and by $N=n+r$ the number of rays in $\Sigma$. Let $v_\rho$ denote the primitive generator of the ray $\rho$, and assume that $\Sigma(1)$ is an ordered set.
+
+The (non-effective) action of the big torus $T=\Gm^N$ on $X$ induces an action on $\Q{g}{n}{X}{\beta}$, by scaling the sections. Let us denote by $\lambda_1,\ldots,\lambda_N$ the corresponding weights.
+
+Let us denote by $\{\sigma_i\}_{i\in\Sigma^\text{max}}$ the $T$-fixed points on $X$ (corresponding to maximal cones of $\Sigma$) and by $\{\tau_{i,j}\}_{i,j\in\Sigma^\text{max}}$ the $1$-dimensional orbits (corresponding to facets of the maximal cones; $\tau_{i,j}$ -if it exists- connects $\sigma_i$ and $\sigma_j$).
+
+Let $\sigma_i$ and $\sigma_j$ be two adjacent maximal cones; since $X$ is smooth, $\{v_\rho\}_{\rho\prec\tau_{i,j}}\cup\{v_n\}$ is a $\ZZ$-basis of $N$ (where $v_n$ is the only ray in $\sigma_i$, but not in $\tau_{i,j}$), so we can find the dual basis $\{m_1,\ldots,m_n\}$ of $M$. Define $\lambda^{\sigma_i}_{\sigma_j}=\sum_{\rho\in\Sigma(1)}\langle m_n,v_\rho\rangle\lambda_\rho$. Compare with \cite[\S\S 6.4 and 7.3]{HolgerSpielberg}.
+
+\begin{lem}
+ Let $\sigma_i$ be a $T$-fixed point on $X$ and $\tau_{i,j}$ be a $1$-dimensional orbit through it, furthermore let $D_\rho$ be a toric divisor. Then the weight of the $T$-action on $\mathcal O(D_\rho)_{\sigma_i}$ is
+ \[
+  \begin{cases}
+      \lambda^{\sigma_i}_{\sigma_j}, & \text{if}\ \rho\prec \sigma_i\  \text{and}\  \tau_{i,j}\cup\{v_\rho\}=\sigma_i \\
+      0, & \text{otherwise.}
+    \end{cases}
+ \]
+The weight of the $T$-action on $T(\tau_{i,j})_{\sigma_i}$ is $\lambda^{\sigma_i}_{\sigma_j}$.
+\end{lem}
+\begin{proof}
+ Let $\sigma_i$ be spanned by $\{v_{i_1},\ldots,v_{i_n}\}$. If $[z_1:\ldots:z_N]$ are homogeneous coordinates on $X$, then local coordinates around $\sigma_i$ are given by \[\left(x_{i_1}=z_{i_1}\prod_{j\neq i_1}z_j^{\langle m_{i_1},v_j\rangle},\ldots,x_{i_n}=z_{i_n}\prod_{j\neq i_n}z_j^{\langle m_{i_n},v_j\rangle}\right),\] where $\{m_{i_1},\ldots,m_{i_n}\}$ is the dual basis of $\{v_{i_1},\ldots,v_{i_n}\}$.
+ 
+ If $\rho\nprec \sigma_i$ then the weight is $0$ because we can find a divisor representing $\mathcal O(D_\rho)$ that does not pass through $\sigma_i$. Otherwise $\rho=i_j$ for some $j\in\{1,\ldots,n\}$, so $D_{\rho}$ has local equation $x_{i_j}=0$ near $\sigma_i$, which makes the first statement clear.
+ 
+ The second part follows from the exact sequence
+ \[
+  0\to T\tau_{i,j}\to TX_{|\tau_{i,j}}\to \bigoplus_{\rho\prec\tau_{i,j}}\mathcal O_{\tau_{i,j}}(D_{\rho})\to 0
+ \]
+together with the Euler exact sequence for $TX$ and the first part.
+\end{proof}
+
+\section{$T$-fixed points}
+The following discussion is inspired by \cite[\S 7.3]{MOP}.
+
+\appendix
+
+\bibliographystyle{alpha}
+\bibliography{relqm}
+
+\bigskip\bigskip
+
+%\noindent Luca Battistella\\
+%Department of Mathematics, Imperial College London \\
+%\texttt{l.battistella14@imperial.ac.uk}\\
+
+%\noindent Navid Nabijou \\
+%Department of Mathematics, Imperial College London \\
+%\texttt{navid.nabijou09@imperial.ac.uk}
+
+
+
+\end{document}
