@@ -62,6 +62,7 @@
 \newcommand{\Proj}{\operatorname{Proj}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\val}{\operatorname{val}}
 \newcommand{\Gm}{\mathbb{G}_{\text{m}}}
 \newcommand{\virt}[1]{[#1]^{\operatorname{virt}}}
 \newcommand{\vip}[1]{[#1]^{\operatorname{prod}}}
@@ -197,8 +198,49 @@ The weight of the $T$-action on $T(\tau_{i,j})_{\sigma_i}$ is $\lambda^{\sigma_i
 together with the Euler exact sequence for $TX$ and the first part.
 \end{proof}
 
-\section{$T$-fixed points}
-The following discussion is inspired by \cite[\S 7.3]{MOP}.
+\section{$T$-fixed loci}
+The following discussion is inspired by \cite[\S 7.3]{MOP}. $T$-fixed loci for $\Q{g}{n}{X}{\beta}$ are indexed by decorated graphs
+\[ \left(\Gamma, v, \gamma, b,\varepsilon,\delta,\mu\right) \]
+where:
+\begin{enumerate}
+ \item $\Gamma=(V,E)$ is a graph with vertex set $V$ and edge set $E$ (no self-edges allowed);
+ \item $v\colon V\to \{\sigma_i\}_{i\in\Sigma^\text{max}}$ assigns a fix point to each vertex;
+ \item $\gamma\colon V\to \ZZ_{\geq 0}$ is a genus assignment;
+ \item $b\colon V\to H^+_2(X,\ZZ)$ assigns an effective curve class to each vertex;
+ \item $\varepsilon\colon E\to \{\tau_{i,j}\}_{i,j\in\Sigma^\text{max}}$ assigns a one-dimensional orbit to each edge;
+ \item $\delta\colon E\to \ZZ_{\geq1}$ specifies the degree of the covering map;
+ \item $\mu\colon V\to 2^{\{1,\ldots,n\}}$ is a distribution of the markings to the vertices $V$.
+\end{enumerate}
+These data are required to satisfy a number of compatibility conditions:
+\begin{itemize}
+ \item $\Gamma$ must be connected;
+ \item if $e\colon v_1\to v_2$ then $\varepsilon(e)=\tau_{i,j}$ with $v(v_1)=\sigma_i$ and $v(v_2)=\sigma_j$ (or viceversa);
+ \item $h^1(\Gamma)+\sum_{v\in V} \gamma(v)=g$;
+ \item $b$ is compatible with $v$; \marginpar{CHECK ME AND SPELL ME OUT}
+ \item $\sum_{v\in V}b(v)+\sum_{e\in E}\delta(e)[\varepsilon(e)]=\beta$.
+ \end{itemize}
+We are going to denote by $\val\colon V\to\ZZ_{\geq1}$ the number of edges adjacent to a vertex, and by $\deg\colon V\to\ZZ_{\geq2}$ the sum of $\val$ with the number of marked points associated to each vertex.
+
+The corresponding $T$-fixed locus is isomorphic, up to a finite map, to:
+\[
+ \prod_{v\in V} \overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec v(v)}b(v)\cdot D_\rho}
+\]
+The moduli spaces corresponding to degenerate vertices (where $\deg(v)=2$, $\gamma(v)=0$, and $b(v)=0$) are treated as points in this product. Notice that $\overline{\mathcal M}_{g,n|d}/S_d\simeq\Q{g}{n}{\Aaff^1\sslash\Gm}{d}$. Hence the finite map has degree \[|\mathbf A|\cdot\prod_{v\in V}(b(v)\cdot D_\rho)!\] where $|\mathbf A|$ can be extrapolated from
+\[
+ 0\to\prod_{e\in E}\ZZ/\delta(e)\ZZ\to \mathbf A\to \Aut(\Gamma)\to 0.
+\]
+Notice here that, for every maximal cone $\sigma_i$, the collection $\{D_\rho\}_{\rho\nprec\sigma_i}$ constitutes a basis of $\Pic(X)$ (since every support function can be made into vanishing on every $\rho\nprec\sigma_i$ by subtracting an appropriate $m\in M$).
+
+The corresponding quasimap can be described as follows: edges correspond to maps (without basepoints) from $\PP^1$ to the corresponding $1$-dimensional $T$-orbit $\varepsilon(e)$, of degree $\delta(e)$ and totally ramified at the two $T$-fixed points. Pick instead a vertex $v\in V$: according to $v(v)=\sigma_i$, we may write $\OO(D_{i_j})=\bigotimes_{\rho\nprec\sigma_i} \OO(D_\rho)^{\otimes a_{i_j,\rho}}$ for each $i_j,\ j=1,\ldots,n$ such that the corresponding ray belongs to $\sigma_i$. For a marked curve $C_v$ in the mixed moduli space $\overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec v(v)}b(v)\cdot D_\rho}$ with markings
+\[
+ \{p_1,\ldots,p_{\deg(v)}\}\cup\bigcup_{\rho\nprec\sigma_i}\{q_{\rho,1},\ldots,q_{\rho,b(v)\cdot D_{\rho}}\}
+\]
+the corresponding quasimap is given by:
+\[
+ \left((C_v,\{p_1,\ldots,p_{\deg(v)}\}),(\mathcal O_{C_v}\hookrightarrow\OO_{C_v}(\sum_{j=1}^{b(v)\cdot D_{\rho} }q_{\rho,j})=:L_\rho)_{\rho\nprec\sigma_i},(\mathcal O_{C_v}\xrightarrow{0}\bigotimes_{\rho\nprec\sigma_i} L_\rho^{\otimes a_{i_j,\rho}}=:L_{i_j})_{j=1,\ldots,n} \right)
+\]
+
+Gluing along flags $F=(e,v)$ is made possible by the required compatibilities.
 
 \appendix
 
