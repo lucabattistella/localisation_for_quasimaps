@@ -48,6 +48,7 @@
 \newcommand{\A}{\mathcal A}
 \newcommand{\B}{\mathcal B}
 \newcommand{\C}{\mathfrak C}
+\newcommand{\F}{\mathcal F}
 \newcommand{\EE}{\mathbf{E}}
 \renewcommand{\L}{\mathcal L}
 \newcommand{\LL}{\mathbf{L}}
@@ -100,13 +101,16 @@
 \newcommand{\pr}{\operatorname{pr}}
 \newcommand{\ev}{\operatorname{ev}}
 \newcommand{\codim}{\operatorname{codim}}
+\newcommand{\rk}{\operatorname{rk}}
 \newcommand{\vdim}{\operatorname{vdim}}
 \newcommand{\ildef}[1]{\emph{#1}}
 \newcommand{\om}[1]{\mathcal{#1}}
 \newcommand{\h}{\operatorname{h}}
+\newcommand{\vv}{\operatorname{v}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\RR}{\textbf{R}}
 \newcommand{\NN}{\operatorname{N}}
+\newcommand{\id}{\mathrm{id}}
 
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}[section]
@@ -180,8 +184,8 @@ Let $\sigma_i$ and $\sigma_j$ be two adjacent maximal cones; since $X$ is smooth
  Let $\sigma_i$ be a $T$-fixed point on $X$ and $\tau_{i,j}$ be a $1$-dimensional orbit through it, furthermore let $D_\rho$ be a toric divisor. Then the weight of the $T$-action on $\mathcal O(D_\rho)_{\sigma_i}$ is
  \[
   \begin{cases}
-      \lambda^{\sigma_i}_{\sigma_j}, & \text{if}\ \rho\prec \sigma_i\  \text{and}\  \tau_{i,j}\cup\{v_\rho\}=\sigma_i \\
-      0, & \text{otherwise.}
+      \lambda^{\sigma_i}_{\sigma_j} & \text{if}\ \rho\prec \sigma_i\  \text{and}\  \tau_{i,j}\cup\{v_\rho\}=\sigma_i \\
+      0 & \text{otherwise.}
     \end{cases}
  \]
 The weight of the $T$-action on $T(\tau_{i,j})_{\sigma_i}$ is $\lambda^{\sigma_i}_{\sigma_j}$.
@@ -198,40 +202,40 @@ The weight of the $T$-action on $T(\tau_{i,j})_{\sigma_i}$ is $\lambda^{\sigma_i
 together with the Euler exact sequence for $TX$ and the first part.
 \end{proof}
 
-\section{$T$-fixed loci}
+\subsection{$T$-fixed loci}
 The following discussion is inspired by \cite[\S 7.3]{MOP}. $T$-fixed loci for $\Q{g}{n}{X}{\beta}$ are indexed by decorated graphs
 \[ \left(\Gamma, v, \gamma, b,\varepsilon,\delta,\mu\right) \]
 where:
 \begin{enumerate}
  \item $\Gamma=(V,E)$ is a graph with vertex set $V$ and edge set $E$ (no self-edges allowed);
- \item $v\colon V\to \{\sigma_i\}_{i\in\Sigma^\text{max}}$ assigns a fix point to each vertex;
+ \item $\vv\colon V\to \{\sigma_i\}_{i\in\Sigma^\text{max}}$ assigns a fix point to each vertex;
  \item $\gamma\colon V\to \ZZ_{\geq 0}$ is a genus assignment;
  \item $b\colon V\to H^+_2(X,\ZZ)$ assigns an effective curve class to each vertex;
  \item $\varepsilon\colon E\to \{\tau_{i,j}\}_{i,j\in\Sigma^\text{max}}$ assigns a one-dimensional orbit to each edge;
  \item $\delta\colon E\to \ZZ_{\geq1}$ specifies the degree of the covering map;
- \item $\mu\colon V\to 2^{\{1,\ldots,n\}}$ is a distribution of the markings to the vertices $V$.
+ \item $\mu\colon \{1,\ldots,n\}\to V$ is a distribution of the markings to the vertices $V$.
 \end{enumerate}
 These data are required to satisfy a number of compatibility conditions:
 \begin{itemize}
  \item $\Gamma$ must be connected;
- \item if $e\colon v_1\to v_2$ then $\varepsilon(e)=\tau_{i,j}$ with $v(v_1)=\sigma_i$ and $v(v_2)=\sigma_j$ (or viceversa);
+ \item if $e\colon v_1\to v_2$ then $\varepsilon(e)=\tau_{i,j}$ with $\vv(v_1)=\sigma_i$ and $\vv(v_2)=\sigma_j$ (or viceversa);
  \item $h^1(\Gamma)+\sum_{v\in V} \gamma(v)=g$;
- \item $b$ is compatible with $v$; \marginpar{CHECK ME AND SPELL ME OUT}
+ \item $b$ is compatible with $\vv$, namely $b(v)\cdot D_\rho\geq 0$ for all $\rho\nprec \vv(v)$; \marginpar{CHECK ME}
  \item $\sum_{v\in V}b(v)+\sum_{e\in E}\delta(e)[\varepsilon(e)]=\beta$.
  \end{itemize}
 We are going to denote by $\val\colon V\to\ZZ_{\geq1}$ the number of edges adjacent to a vertex, and by $\deg\colon V\to\ZZ_{\geq2}$ the sum of $\val$ with the number of marked points associated to each vertex.
 
 The corresponding $T$-fixed locus is isomorphic, up to a finite map, to:
 \[
- \prod_{v\in V} \overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec v(v)}b(v)\cdot D_\rho}
+ \prod_{v\in V} \overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec \vv(v)}b(v)\cdot D_\rho}
 \]
-The moduli spaces corresponding to degenerate vertices (where $\deg(v)=2$, $\gamma(v)=0$, and $b(v)=0$) are treated as points in this product. Notice that $\overline{\mathcal M}_{g,n|d}/S_d\simeq\Q{g}{n}{\Aaff^1\sslash\Gm}{d}$. Hence the finite map has degree \[|\mathbf A|\cdot\prod_{v\in V}(b(v)\cdot D_\rho)!\] where $|\mathbf A|$ can be extrapolated from
+The moduli spaces corresponding to degenerate vertices (where $\deg(v)=2$, $\gamma(v)=0$, and $b(v)=0$) are treated as points in this product. Notice that $\overline{\mathcal M}_{g,n|d}/S_d\simeq\Q{g}{n}{\Aaff^1\sslash\Gm}{d}$. Hence the finite map has degree \[|\mathbf A|\cdot\prod_{v\in V}\prod_{\rho\nprec\vv(v)}(b(v)\cdot D_\rho)!\] where $|\mathbf A|$ can be extrapolated from
 \[
  0\to\prod_{e\in E}\ZZ/\delta(e)\ZZ\to \mathbf A\to \Aut(\Gamma)\to 0.
 \]
 Notice here that, for every maximal cone $\sigma_i$, the collection $\{D_\rho\}_{\rho\nprec\sigma_i}$ constitutes a basis of $\Pic(X)$ (since every support function can be made into vanishing on every $\rho\nprec\sigma_i$ by subtracting an appropriate $m\in M$).
 
-The corresponding quasimap can be described as follows: edges correspond to maps (without basepoints) from $\PP^1$ to the corresponding $1$-dimensional $T$-orbit $\varepsilon(e)$, of degree $\delta(e)$ and totally ramified at the two $T$-fixed points. Pick instead a vertex $v\in V$: according to $v(v)=\sigma_i$, we may write $\OO(D_{i_j})=\bigotimes_{\rho\nprec\sigma_i} \OO(D_\rho)^{\otimes a_{i_j,\rho}}$ for each $i_j,\ j=1,\ldots,n$ such that the corresponding ray belongs to $\sigma_i$. For a marked curve $C_v$ in the mixed moduli space $\overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec v(v)}b(v)\cdot D_\rho}$ with markings
+The corresponding quasimap can be described as follows: edges correspond to maps (without basepoints) from $\PP^1$ to the corresponding $1$-dimensional $T$-orbit $\varepsilon(e)$, of degree $\delta(e)$ and totally ramified at the two $T$-fixed points. Pick instead a vertex $v\in V$: according to $\vv(v)=\sigma_i$, we may write $\OO(D_{i_j})=\bigotimes_{\rho\nprec\sigma_i} \OO(D_\rho)^{\otimes a_{i_j,\rho}}$ for each $i_j,\ j=1,\ldots,n$ such that the corresponding ray belongs to $\sigma_i$. For a marked curve $C_v$ in the mixed moduli space $\overline{\mathcal M}_{\gamma(v),\deg(v)|\sum_{\rho\nprec \sigma_i}b(v)\cdot D_\rho}$ with markings
 \[
  \{p_1,\ldots,p_{\deg(v)}\}\cup\bigcup_{\rho\nprec\sigma_i}\{q_{\rho,1},\ldots,q_{\rho,b(v)\cdot D_{\rho}}\}
 \]
@@ -241,6 +245,92 @@ the corresponding quasimap is given by:
 \]
 
 Gluing along flags $F=(e,v)$ is made possible by the required compatibilities.
+
+\subsection{The obstruction theory.} Recall that $\Q{g}{n}{X}{\beta}$ has a perfect obstruction theory relative to $\mathfrak M_{g,n}$ given by $\R\pi_*\F_X$, where $\F_X$ is the sheaf on the universal curve given by
+\begin{equation}\label{eqn:F}
+ 0\to\OO_{\mathcal C_\mathcal Q}\otimes \mathfrak t\to\bigoplus_{\rho\in\Sigma(1)}\mathcal L_\rho\to\F_X\to 0.
+\end{equation}
+When restricting to a single quasimap $\left((C,\mathbf p),(L_{\rho},u_{\rho})\right)$, we get an exact sequence:
+\begin{align*}
+ 0&\to \Ext^0(\Omega_C(\mathbf p),\OO_C)\to H^0(C,\F_X)\to \mathcal T^0_{|C}\to \\
+  &\to \Ext^1(\Omega_C(\mathbf p),\OO_C)\to H^1(C,\F_X)\to \mathcal T^1_{|C}\to 0
+\end{align*}
+Let us denote by $B_1,\ldots, B_6$ the objects in the above exact sequence, by $(-)^f$ and $(-)^m$ the fixed and moving parts respectively, and let it be understood that the analysis of each $B_i$ can be conducted by looking at the partial normalisation of $C$ at the nodes connecting a contracted to a non-contracted component, from which it follows that each term factors into a vertex, edge, and flag contribution (to which we are going to refer freely in the following). We shall study the fixed/moving decomposition of $B_3$ and $B_6$ by considering that of $B_1, B_2, B_4,$ and $B_5$.
+
+A preliminary observation is that the edge contribution is precisely the same as in the stable maps case, since a non-contracted component must be a $\PP^1$ covering a $1$-dimensional orbit, totally ramified at $0$ and $\infty$, which must furthermore be nodes or markings, hence there cannot be any basepoint. On the other hand, a vertex contribution may come from a totally basepoint quasimap; in this case, calling $\sigma_i=\langle \rho_{i_1},\ldots,\rho_{i_n}\rangle$ the maximal cone of $\Sigma$ representing the image point of such a quasimap, notice that the $n$ (trivial) sections corresponding to $\rho_{i_1},\ldots,\rho_{i_n}$ are going to be unaffected by the torus action, while the non-trivial action on $\{u_\rho\}_{\rho\nprec\sigma_i}$ can be adjusted by taking an appropriate automorphism of the corresponding line bundle (of which there are precisely $r=\rk\Pic(X_\Sigma)$); this shows that the underlying curve needs not be touched, i.e. we can take $\id_C$.
+
+Focussing on the fixed part first, observe that $B_1^f$ comprises a $1$-dimensional contribution from both the edges and the genus $0$, $\deg(v)=2$ (but $b(v)\neq 0$) components, which cancels out with a corresponding term in $B_4^f$; the remaining part of $B_4^f$ corresponds to deformations of the contracted components (leaving the dual graph fixed). On the other hand the fixed part of $B_2$ and $B_5$ may be simulataneously studied from the normalisation exact sequence:
+\begin{equation}\label{eqn:normalisation}
+\begin{aligned}
+ 0&\to H^0(C,\F_X)\to \bigoplus_{v\in V}H^0(C_v,\F_{X|C_v})\oplus \bigoplus_{e\in E}H^0(C_e,\F_{X|C_e})\to \bigoplus_{f\in\text{Flags}} TX_{\vv(f)}\to \\
+ &\to H^1(C,\F_X)\to \bigoplus_{v\in V}H^1(C_v,\F_{X|C_v})\oplus \bigoplus_{e\in E}H^1(C_e,\F_{X|C_e})\to 0
+\end{aligned} 
+\end{equation}
+notice that the third term is justified because vertices are not basepoints; while for degenerate vertices $v$ it is intended that $H^0(C_v,\F_{X|C_v})=TX_{\vv(v)}$ cancels out with the corresponding flag term, and $H^1(C_v,\F_{X|C_v})=0$. The only contribution to the fixed part comes from $H^0(C_v,\F_{X|C_v})$; namely, let $\sigma_i$ be the corresponding fixed point as above, and choose $\{\OO_X(D_\rho)\}_{\rho\nprec\sigma_i}$ as a basis of $\Pic(X_\Sigma)$: then the exact sequence \eqref{eqn:F} can be rewritten as
+\begin{equation}\label{eqn:Fbasis}
+ \begin{aligned}
+ 0\to\OO_C^{\oplus r}\xrightarrow{\left(\text{can},0\right)} & \underbrace{\bigoplus_{\rho\nprec\sigma_i} L_\rho}\oplus\bigoplus_{j=1}^n L_{i_j}\to\F_X\to 0 \\
+ & = \bigoplus_{\rho\nprec\sigma_i}\OO_C(\sum_{j=1}^{b(v)\cdot D_\rho}q_j)
+\end{aligned}
+\end{equation}
+The fixed part of $B_2-B_5$ then results in $\oplus_{\rho\nprec\sigma_i}H^0(C,\OO_C(\mathbf q)_{|\mathbf q})$, that is the tangent of $\overline{\mathcal M}_{g(v),\val(v)|\sum_{\rho\nprec\sigma_i}b(v)\cdot D_\rho}$ over $\mathfrak M_{g(v),\val(v)}$. Completing the above discussion this proves that the fixed part of the restriction of the perfect obstruction theory to the fixed loci corresponds to their standard obstruction theory. Let us move on now to the moving part.
+
+As compared to the case of stable maps, the stability condition implies that there are no rational tails, hence $B_1^m=0$ (see \cite[Lemma 7.2]{HolgerSpielberg}). Since deformations of contracted components are $T$-fixed, $B_4^m$ comes from smoothing nodes between a non-contracted component and:
+\begin{itemize}
+ \item another non-contracted component: if the node is mapped to $\sigma_i$ and the two adjacent curves to $\tau_{i,j_1}$ and $\tau_{i,j_2}$ then the contribution is $\lambda^{\sigma_i}_{\sigma_{j_1}}+\lambda^{\sigma_i}_{\sigma_{j_2}}$;
+ \item a contracted component: such a node determines a marking on the corresponding contracted component, and let $\psi_f$ denote the $c_1$ of the cotangent line bundle at such a point (where $f=(v,e)$ is the flag s.t. $v$ corresponds to the contracted component and $e$ to the non-contracted one; also denote by $\sigma_i=\vv(v)$ and $\tau_{i,j}=\varepsilon(e)$); the contribution in this case is given by $\lambda^{\sigma_i}_{\sigma_j}-\psi_f=:\lambda_f-\psi_f$.
+\end{itemize}
+Summing up, we have the following (see \cite[Lemma 7.3]{HolgerSpielberg}):
+\begin{lem}
+ The moving part from deformations of the underlying curve can be expressed as:
+ \[
+  e^T(B_4^m)=\prod_{f\in\text{Flags}\colon v(f)\in V^{\text{non-deg}}}(\lambda_f-\psi_f)\prod_{v\in V^\text{deg}\colon\val(v)=2}(\lambda^{\sigma_i}_{\sigma_{j_1}}+\lambda^{\sigma_i}_{\sigma_{j_2}}),
+ \]
+ with notation as above.
+\end{lem}
+
+Finally, the moving part of $B_2-B_5$ can be analysed from the normalisation exact sequence \eqref{eqn:normalisation}. As we have already remarked, around non-contracted components the situation is just the same as in the case of stable maps, so the edge contributions are unaltered.
+\begin{equation}\label{eqn:contrtoF}
+\begin{aligned}
+ H^0(C,\F_X)-H^1(C,\F_X) &= \bigoplus_{v\in V}H^0(C_v,\F_{X|C_v})-\bigoplus_{v\in V}H^1(C_v,\F_{X|C_v}) \\
+ & + \bigoplus_{e\in E}H^0(C_e,f_e^*TX)-\bigoplus_{e\in E}H^1(C_e,f_e^*TX) \\
+ & - \bigoplus_{f\in\text{Flags}} TX_{\vv(f)}
+\end{aligned} 
+\end{equation}
+The computation for the edge contributions is made non-trivial by the action of the torus on $C_e$; see \cite[Lemma 7.4 and Corollary 7.5]{HolgerSpielberg}
+\begin{lem}
+The edge contribution to the moving part is given by
+\[
+ e^T(H^0(C_e,f_e^*TX)^m)=(-1)^{\delta(e)}\frac{(\delta(e)!)^2}{\delta(e)^{2\delta(e)}}(\lambda^{\vv_1(e)}_{\vv_2(e)})^{2\delta(e)}\prod_{\substack{\sigma\in\Sigma^{\text{max}}: \\ \sigma\diamond\vv_1(e),\sigma\neq\vv_2(e)}}\prod_{k=0}^{?}(\lambda^{\vv_1(e)}_{\sigma}-\frac{k}{\delta(e)}\lambda^{\vv_1(e)}_{\vv_2(e)})
+\]
+and
+\[
+ e^T(H^1(C_e,f_e^*TX)^m)=\prod_{\substack{\sigma\in\Sigma^{\text{max}}: \\ \sigma\diamond\vv_1(e),\sigma\neq\vv_2(e)}}\prod_{k=?}^{-2}(\lambda^{\vv_1(e)}_{\sigma}-\frac{k+1}{\delta(e)}\lambda^{\vv_1(e)}_{\vv_2(e)})
+\]
+\end{lem}
+
+The vertex contribution is easily computed from \eqref{eqn:Fbasis} \textcolor{blue}{if we restrict to the $g=0$ case; otherwise it seems that the first line of \eqref{eqn:contrtoF} is not a two-term comlex of vector bundles and we still need to find a better presentation.}
+
+\begin{lem}
+ The vertex contribution to the moving part is given by
+ \[
+  e^T(H^0(C_v,\F_{X|C_v})^m-H^1(C_v,\F_{X|C_v})^m)=\prod_{j=1}^n(\lambda^{\sigma_i}_{\sigma_{i_j}})^{b(v)\cdot D_{i_j}+1}
+ \]
+ 
+where $\sigma_i:=\vv(v)$.
+\end{lem}
+
+\begin{prop}
+ The inverse of the equivariant Euler class of the virtual normal bundle to a fixed point locus $\left(\Gamma, v, \gamma, b,\varepsilon,\delta,\mu\right)$ is given by
+\begin{equation}
+ \begin{aligned}
+  \frac{1}{e^T(N^{\text{vir}})}&=\prod_{\substack{f\in\text{Flags}\colon \\v(f)\in V^{\text{non-deg}}}}\frac{1}{\lambda_f-\psi_f}\prod_{\substack{v\in V^\text{deg}\colon \\ \val(v)=2}}\frac{1}{\lambda^{\sigma_i}_{\sigma_{j_1}}+\lambda^{\sigma_i}_{\sigma_{j_2}}} \\
+  &\prod_{e\in E}(-1)^{\delta(e)}\frac{(\delta(e)!)^2}{\delta(e)^{2\delta(e)}}(\lambda^{\vv_1(e)}_{\vv_2(e)})^{2\delta(e)}\prod_{\substack{\sigma\in\Sigma^{\text{max}}: \\ \sigma\diamond\vv_1(e),\sigma\neq\vv_2(e)}}\frac{\prod_{k=?}^{-2}(\lambda^{\vv_1(e)}_{\sigma}-\frac{k+1}{\delta(e)}\lambda^{\vv_1(e)}_{\vv_2(e)})}{\prod_{k=0}^{?}(\lambda^{\vv_1(e)}_{\sigma}-\frac{k}{\delta(e)}\lambda^{\vv_1(e)}_{\vv_2(e)})} \\
+  & \prod_{v\in V^{\text{non-deg}}}\prod_{\sigma\diamond \vv(v)}\frac{1}{(\lambda^{\vv(v)}_{\sigma})^{b(v)\cdot D_{\vv_v\setminus\sigma}+1}}\prod_{v\in V}(\lambda^{\vv(v)}_{\text{tot}})^{\val(v)}
+ \end{aligned}
+\end{equation}
+\end{prop}
+
 
 \appendix
 
